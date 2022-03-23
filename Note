@@ -1,0 +1,84 @@
+when i create vendeur
+/*useEffect(() => {
+        const usersRef = firebase.firestore();
+         data.forEach(function(obj){
+             if(obj.name=='Manioc'){
+            usersRef
+            .collection('Data')
+            .doc('Manioc')
+            .set({
+                id: obj.id,
+                name: obj.name,
+                categorie: obj.categorie,
+                amount: obj.amount,
+                description: obj.description,
+                imageSource:obj.imageSource,
+                price: obj.price,
+                count: obj.count
+            }).then(function(docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
+        }
+         })
+        
+        // Unsubscribe from events when no longer in use
+        return () => usersRef;
+      }, []);*/
+
+
+
+
+
+const deleteProduit = () => {
+        const usersRef = firebase.firestore()
+        usersRef
+            .collection('users')
+            .doc(uid)
+            .collection('PanierItem')
+            .doc(params.name)
+            .delete()
+            .then(() => {
+                setModalVisible(!modalVisible);
+                console.log('Produit Supprimer!');
+            });
+    }
+
+
+
+
+
+
+function deleteAll (){
+       /*const usersRef = firebase.firestore();
+            usersRef
+                .collection('users')
+                .doc(uid)
+                .collection('PanierItem')
+                .get()
+                .then((querySnapshot) => {
+                    const toDelete=[];
+                    querySnapshot.forEach(documentSnapshot => {
+                        toDelete.push({
+                            ...documentSnapshot.get()  
+                    })
+                })
+        }*/
+    }
+
+
+
+
+
+
+
+
+
+
+
+    onSnapshot(documentSnapshot => {
+              setData(documentSnapshot.data());
+              console.log('pas ici')
+            });
